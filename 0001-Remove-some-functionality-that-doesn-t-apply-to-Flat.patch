@@ -101,10 +101,10 @@ index d1d7406..54abb26 100644
  
      #<<<
 diff --git a/lib/Prefs.pm b/lib/Prefs.pm
-index 5991d9e..c92fe39 100644
+index 95090b6..2c95672 100644
 --- a/lib/Prefs.pm
 +++ b/lib/Prefs.pm
-@@ -148,15 +148,9 @@ sub custom_prefs {
+@@ -151,15 +151,9 @@ sub custom_prefs {
      }
      close( $F );
  
@@ -124,10 +124,10 @@ index 5991d9e..c92fe39 100644
      # The proxy is off by default
      if ( !exists $pkg{ HTTPProxy } ) {
 diff --git a/lib/Settings.pm b/lib/Settings.pm
-index ead052e..6f7c08b 100644
+index c7a3208..8db019a 100644
 --- a/lib/Settings.pm
 +++ b/lib/Settings.pm
-@@ -97,21 +97,6 @@ sub show_window {
+@@ -112,21 +112,6 @@ sub show_window {
          }
      );
  
@@ -136,7 +136,7 @@ index ead052e..6f7c08b 100644
 -    $option->set_tooltip_text(
 -        _( 'Check online for application and signature updates' ) );
 -    $option->set_active( TRUE ) if ( $prefs{ GUICheck } );
--    $grid->attach( $option, 0, 4, 1, 1 );
+-    $grid->attach( $option, 0, 5, 1, 1 );
 -    $option->signal_connect(
 -        toggled => sub {
 -            my $btn = shift;

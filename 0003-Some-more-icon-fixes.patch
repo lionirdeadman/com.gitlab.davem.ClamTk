@@ -22,25 +22,25 @@ index 624b326..48b29da 100644
  
      my $select_button
 diff --git a/lib/Icons.pm b/lib/Icons.pm
-index 975498a..a160c4c 100644
+index 1e39401..8986b65 100644
 --- a/lib/Icons.pm
 +++ b/lib/Icons.pm
-@@ -25,14 +25,13 @@ sub get_image() {
-     my %table;
- 
-     # These need to be scrubbed again
+@@ -27,7 +27,6 @@ sub get_image() {
+     # The gtk-apply in the left column is because it works and
+     # the newer names (e.g., emblem-ok) don't.
+     $table{ 'system-run' }                 = 'gtk-apply';
 -    $table{ 'alarm' }                      = 'gtk-properties';
      $table{ 'document-new' }               = 'gtk-file';
-+    $table{ 'document-properties' }        = 'gtk-properties';
-     $table{ 'document-save' }              = 'gtk-apply';
-     $table{ 'document-save-as' }           = 'gtk-save-as';
+     $table{ 'document-print' }             = 'gtk-print';
+     $table{ 'document-properties' }        = 'document-properties';
+@@ -36,7 +35,6 @@ sub get_image() {
      $table{ 'document-send' }              = 'gtk-index';
      $table{ 'edit-delete' }                = 'gtk-delete';
      $table{ 'edit-find' }                  = 'gtk-find';
 -    $table{ 'edit-select' }                = 'gtk-find';
      $table{ 'edit-undo' }                  = 'gtk-undelete';
      $table{ 'emblem-important' }           = 'gtk-no';
-     $table{ 'emblem-ok' }                  = 'gtk-yes';
+     $table{ 'folder-documents' }           = 'gtk-directory';
 -- 
 2.23.0
 

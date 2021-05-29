@@ -9,7 +9,7 @@ Subject: [PATCH 2/3] Various Flatpak-specific config changes
  2 files changed, 7 insertions(+), 28 deletions(-)
 
 diff --git a/lib/App.pm b/lib/App.pm
-index f6e94d1..54c2f25 100644
+index 2cf3627..071a04a 100644
 --- a/lib/App.pm
 +++ b/lib/App.pm
 @@ -38,13 +38,13 @@ sub get_path {
@@ -33,7 +33,7 @@ index f6e94d1..54c2f25 100644
  
      # Most times freshclam is under /usr/bin
 -    $path->{ freshclam }
--        = ( -e '/usr/bin/freshclam' ) ? '/usr/bin/freshclam'
+-        = ( -e '/usr/bin/freshclam' )       ? '/usr/bin/freshclam'
 -        : ( -e '/usr/local/bin/freshclam' ) ? '/usr/local/bin/freshclam'
 -        : ( -e '/opt/local/bin/freshclam' ) ? '/opt/local/bin/freshclam'
 -        :                                     '';
@@ -41,7 +41,7 @@ index f6e94d1..54c2f25 100644
  
      # Use sigtool for db info
 -    $path->{ sigtool }
--        = ( -e '/usr/bin/sigtool' ) ? '/usr/bin/sigtool'
+-        = ( -e '/usr/bin/sigtool' )       ? '/usr/bin/sigtool'
 -        : ( -e '/usr/local/bin/sigtool' ) ? '/usr/local/bin/sigtool'
 -        : ( -e '/opt/local/bin/sigtool' ) ? '/opt/local/bin/sigtool'
 -        :                                   '';
@@ -51,28 +51,14 @@ index f6e94d1..54c2f25 100644
      # We'll use clampath as the actual path
      # and clamscan as clampath + scan options
 -    $path->{ clampath }
--        = ( -e '/usr/bin/clamscan' ) ? '/usr/bin/clamscan'
+-        = ( -e '/usr/bin/clamscan' )       ? '/usr/bin/clamscan'
 -        : ( -e '/usr/local/bin/clamscan' ) ? '/usr/local/bin/clamscan'
 -        : ( -e '/opt/local/bin/clamscan' ) ? '/opt/local/bin/clamscan'
 -        :                                    '';
 +    $path->{ clampath } = '/app/bin/clamscan';
  
      $path->{ clamscan } = $path->{ clampath };
- 
-@@ -141,12 +129,7 @@ sub get_daily_sigs_path {
-     # /var/clamav, so check that first.  Other distros will
-     # likely find the defs under /var/lib/clamav.
-     my @dirs = qw(
--        /var/clamav
--        /var/lib/clamav
--        /opt/local/share/clamav
--        /usr/share/clamav
--        /usr/local/share/clamav
--        /var/db/clamav
-+        /var/data/clamav
-     );
- 
-     # If the user selected "manual", that directory needs
+     
 diff --git a/lib/Assistant.pm b/lib/Assistant.pm
 index 594821e..64db644 100644
 --- a/lib/Assistant.pm
